@@ -13,11 +13,12 @@ const createPlantSchema = [
     .withMessage({ msg: 'Is required', errorCode: 'is_required' })
     .isISO8601()
     .withMessage({ msg: 'Invalid date', errorCode: 'invalid_date' }),
-  body('wateringIntervalDays')
-    .exists({ checkFalsy: true, checkNull: true })
-    .withMessage({ msg: 'Is required', errorCode: 'is_required' })
+  body('wateringIntervalDaysValue')
+    .optional({ nullable: true })
     .isNumeric()
     .withMessage({ msg: 'Invalid number', errorCode: 'invalid_number' }),
+  body('wateringIntervalDaysUnit')
+    .optional({ nullable: true }),
   body('images').optional().isArray().withMessage({ msg: 'Images must be an array', errorCode: 'invalid_images' })
 ]
 

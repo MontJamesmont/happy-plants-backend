@@ -267,7 +267,7 @@ router.put("/me", getVerifyUserTokenSchema('_id', "login", true), generalValidat
       },
       new: true
     }
-  ).then(async (user) => {
+  ).populate('plants').then(async (user) => {
     if (!user) {
       console.log("User not found.", err)
       return next(new ResponseError(

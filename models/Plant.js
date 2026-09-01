@@ -8,7 +8,8 @@ const PlantSchema = new Schema({
   ownersPlantName: { type: String, required: true },
   commonName: { type: String },
   firstWateringDay: { type: Date, required: true },
-  wateringIntervalDays: { type: Number, required: true },
+  wateringIntervalDaysValue: { type: Number },
+  wateringIntervalDaysUnit: { type: String },
   images: [{ type: String }]
 }, { timestamps: true })
 

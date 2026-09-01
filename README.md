@@ -1,1 +1,2 @@
-"# happy-plants-backend" 
+# Happy Plants Backend
+

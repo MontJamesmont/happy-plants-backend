@@ -288,13 +288,6 @@ router.put("/me", getVerifyUserTokenSchema('_id', "login", true), generalValidat
 });
 
 router.post("/logout", getVerifyUserTokenSchema('_id', "login"), generalValidation, async (req, res, next) => {
-  const auth = JSON.parse(req.header("authorization"));
-  const token = auth ? auth.token : null;
-  if (token) {
-    (new Blocked({
-      value: token
-    })).save();
-  }
   return res.json({ success: true });
 });
 

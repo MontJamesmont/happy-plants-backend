@@ -6,6 +6,7 @@ const passport = require("passport");
 const config = require("./db");
 
 const users = require("./routes/user");
+const plants = require("./routes/plants");
 const errorHandler = require("./middlewares/errorHandler");
 const { getVerifyUserTokenSchema } = require("./validation/schemas/verifyUser");
 const User = require("./models/User");
@@ -56,6 +57,7 @@ app.use(function (req, res, next) {
   next();
 });
 app.use("/api/users", users);
+app.use("/api/plants", getVerifyUserTokenSchema('_id', 'login'), plants);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 8082;

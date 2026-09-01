@@ -11,7 +11,7 @@ const getUser = async (param, value) => {
   if (param === '_id') value = new mongoose.Types.ObjectId(value);
   await User.findOne({
     [param]: value,
-  }).then(async (foundUser) => {
+  }).populate('plants').then(async (foundUser) => {
     user = foundUser;
   });
 

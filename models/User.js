@@ -15,6 +15,8 @@ const UserSchema = new Schema({
     type: Boolean,
     required: true
   }
+  ,
+  plants: [{ type: Schema.Types.ObjectId, ref: 'Plant' }]
 },
 { timestamps: true });
 
